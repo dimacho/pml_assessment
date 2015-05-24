@@ -1,9 +1,9 @@
-# Coursera: Practical Machine Learning Prediction Assignment Writeup
-Di Mach [GitHub](https://github.com/dimacho)  
+# Practical Machine Learning Prediction Assignment Writeup
+[Di Mach](https://github.com/dimacho)  
 
 
 ```
-## Run time: 2015-05-24 22:14:19
+## Run time: 2015-05-24 22:51:22
 ## R version: R version 3.1.1 (2014-07-10)
 ```
 
@@ -12,7 +12,7 @@ Di Mach [GitHub](https://github.com/dimacho)
 > Using devices such as Jawbone Up, Nike FuelBand, and Fitbit it is now possible to collect a large amount of data about personal activity relatively inexpensively. These type of devices are part of the quantified self movement - a group of enthusiasts who take measurements about themselves regularly to improve their health, to find patterns in their behavior, or because they are tech geeks. One thing that people regularly do is quantify how much of a particular activity they do, but they rarely quantify how well they do it. In this project, your goal will be to use data from accelerometers on the belt, forearm, arm, and dumbell of 6 participants. They were asked to perform barbell lifts correctly and incorrectly in 5 different ways. More information is available from the website here: http://groupware.les.inf.puc-rio.br/har (see the section on the Weight Lifting Exercise Dataset). 
 
 
-> **Data **
+> **Data**
 
 > The training data for this project are available here: 
 
@@ -31,7 +31,7 @@ Di Mach [GitHub](https://github.com/dimacho)
 > 1. Your submission should consist of a link to a Github repo with your R markdown and compiled HTML file describing your analysis. Please constrain the text of the writeup to < 2000 words and the number of figures to be less than 5. It will make it easier for the graders if you submit a repo with a gh-pages branch so the HTML page can be viewed online (and you always want to make it easy on graders :-).
 > 2. You should also apply your machine learning algorithm to the 20 test cases available in the test data above. Please submit your predictions in appropriate format to the programming assignment for automated grading. See the programming assignment for additional details. 
 
-> **Reproducibility **
+> **Reproducibility**
 
 > Due to security concerns with the exchange of R code, your code will not be run during the evaluation by your classmates. Please be sure that if they download the repo, they will be able to view the compiled HTML version of your analysis. 
 
@@ -66,9 +66,6 @@ Read the testing data into a data table.
 url <- "https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv"
 DTest <- fread(url)
 ```
-
-Which variables in the test dataset have zero `NA`s?
-Use this tip: [finding columns with all missing values in r](http://stackoverflow.com/a/11330265).
 
 Belt, arm, dumbbell, and forearm variables that do not have any missing values in the test dataset will be **predictor candidates**.
 
@@ -315,7 +312,7 @@ system.time(trainingModel <- train(classe ~ ., data=DTrainCS, method=method))
 
 ```
 ##    user  system elapsed 
-##   35.00    0.29  840.33
+##   33.91    0.25  844.01
 ```
 
 Stop the clusters.
@@ -347,9 +344,9 @@ trainingModel
 ## Resampling results across tuning parameters:
 ## 
 ##   mtry  Accuracy   Kappa      Accuracy SD  Kappa SD   
-##    2    0.9857360  0.9819569  0.002019061  0.002557511
-##   27    0.9872167  0.9838313  0.001418261  0.001795994
-##   52    0.9775160  0.9715594  0.004509671  0.005717605
+##    2    0.9857182  0.9819349  0.001858607  0.002353271
+##   27    0.9872260  0.9838434  0.001830595  0.002315155
+##   52    0.9772414  0.9712107  0.004793818  0.006080198
 ## 
 ## Accuracy was used to select the optimal model using  the largest value.
 ## The final value used for the model was mtry = 27.
